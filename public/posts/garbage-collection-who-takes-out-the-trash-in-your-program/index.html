@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Garbage Collection: Who Takes Out the Trash in Your Program? | Otmane Echaibi</title>
+<meta name="keywords" content="garbage collection, memory management, John McCarthy, Lisp, reference counting, tracing garbage collection, generational garbage collection, Baker&#39;s algorithm, escape analysis, automatic reference counting, RAII, smart pointers, dangling pointers, memory leaks, weak references, Boehm collector, real-time systems, Java, Go, CPython, iOS, Applesoft BASIC">
+<meta name="description" content="Programs allocate memory constantly, and something has to decide when it comes back. Here is how automatic collectors decide, and what that convenience costs.">
+<meta name="author" content="Otmane Echaibi">
+<link rel="canonical" href="http://localhost:1313/blog/posts/garbage-collection-who-takes-out-the-trash-in-your-program/">
+<link crossorigin="anonymous" href="/blog/assets/css/stylesheet.cd9298b33628769aa1bc1acebbbfd7aa11ce81dfe03484d479e1907760249a1d.css" integrity="sha256-zZKYszYodpqhvBrOu7/XqhHOgd/gNITUeeGQd2Akmh0=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/blog/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/blog/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/blog/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/blog/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/blog/favicon-32x32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/blog/posts/garbage-collection-who-takes-out-the-trash-in-your-program/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><link rel="manifest" href="http://localhost:1313/blog/site.webmanifest">
+<meta name="theme-color" content="#1a5fb4">
+<link rel="stylesheet" href="http://localhost:1313/blog/katex/katex.min.css">
+<style>
+  .katex-display { overflow-x: auto; overflow-y: hidden; padding: 2px 0; }
+  .post-content .katex { font-size: 1.08em; }
+</style>
+<meta property="og:url" content="http://localhost:1313/blog/posts/garbage-collection-who-takes-out-the-trash-in-your-program/">
+  <meta property="og:site_name" content="Otmane Echaibi">
+  <meta property="og:title" content="Garbage Collection: Who Takes Out the Trash in Your Program?">
+  <meta property="og:description" content="Programs allocate memory constantly, and something has to decide when it comes back. Here is how automatic collectors decide, and what that convenience costs.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-10-01T09:00:00+01:00">
+    <meta property="article:modified_time" content="2026-10-01T09:00:00+01:00">
+    <meta property="article:tag" content="Garbage Collection">
+    <meta property="article:tag" content="Memory Management">
+    <meta property="article:tag" content="John McCarthy">
+    <meta property="article:tag" content="Lisp">
+    <meta property="article:tag" content="Reference Counting">
+    <meta property="article:tag" content="Tracing Garbage Collection">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Garbage Collection: Who Takes Out the Trash in Your Program?">
+  <meta name="twitter:description" content="Programs allocate memory constantly, and something has to decide when it comes back. Here is how automatic collectors decide, and what that convenience costs.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://localhost:1313/blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Garbage Collection: Who Takes Out the Trash in Your Program?",
+      "item": "http://localhost:1313/blog/posts/garbage-collection-who-takes-out-the-trash-in-your-program/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Garbage Collection: Who Takes Out the Trash in Your Program?",
+  "name": "Garbage Collection: Who Takes Out the Trash in Your Program?",
+  "description": "Programs allocate memory constantly, and something has to decide when it comes back. Here is how automatic collectors decide, and what that convenience costs.",
+  "keywords": [
+    "garbage collection", "memory management", "John McCarthy", "Lisp", "reference counting", "tracing garbage collection", "generational garbage collection", "Baker's algorithm", "escape analysis", "automatic reference counting", "RAII", "smart pointers", "dangling pointers", "memory leaks", "weak references", "Boehm collector", "real-time systems", "Java", "Go", "CPython", "iOS", "Applesoft BASIC"
+  ],
+  "articleBody": "Every program that creates things eventually has to throw them away. You allocate memory for a list, a window, a user record, and at some point it stops being useful. Somebody has to hand that memory back. Garbage collection is the idea that the somebody should be the runtime, not you.\nIt’s older than most people guess. John McCarthy came up with it around 1959 so that Lisp programmers wouldn’t have to do the bookkeeping by hand. Decades later we still argue about it, and the argument is a trade-off worth tracing carefully.\nThe problem: memory nobody remembers to return With manual memory management, you decide, object by object, when something is freed. That sounds easy until it goes wrong, and it goes wrong in three classic ways:\nA dangling pointer. You free a block while something still points at it. Later that pointer gets followed, but the memory may already belong to something else, and the result is unpredictable. A double free. You free a region that was already freed, and maybe already handed out again. A leak. An object becomes unreachable but never gets freed, and memory slowly runs out. A collector helps you avoid all three by taking the decision away from you. Its working definition of garbage is memory the program allocated but can no longer reach. There are two main ways to find it.\nFirst idea: keep a tally Give every object a counter holding how many references point at it. Create a reference and the counter goes up. Destroy one and it goes down. When it hits zero, nobody can possibly reach the object, so its memory is reclaimed.\nLet’s just trace through what happens:\na = new Node() # Node: count = 1 (only 'a' points at it) b = a # Node: count = 2 a = nothing # Node: count = 1 b = nothing # Node: count = 0 -\u003e memory reclaimed right now That last line is the selling point. Like manual management, and unlike the tracing approach coming up next, objects die the instant their last reference does. The work also tends to touch memory that’s already in the CPU cache, so it rarely disturbs caching or virtual memory.\nWhere the tally breaks The first problem is cycles. Watch what happens when two objects point at each other:\nx = new Node() # X: count = 1 y = new Node() # Y: count = 1 x.next = y # Y: count = 2 y.next = x # X: count = 2 x = nothing # X: count = 1 (y.next still points here) y = nothing # Y: count = 1 (x.next still points here) # nothing in the program can reach either node, # yet neither count is zero Neither object can be collected, even though both are garbage. There are two standard escapes. CPython adds a dedicated cycle-detecting algorithm on top of its counting. The other fix is the weak reference, a pointer that doesn’t increment the count. When its target dies, a weak reference lapses into something predictable like a null, instead of dangling.\nThe tally has other costs too:\nSpace. Every object needs somewhere to store its count, commonly a pointer-sized 32 or 64 bits. On iOS 7 with ARM64, Apple squeezed the count into 19 unused bits of an object’s class pointer so it wouldn’t need extra space. Speed. Naively, every reference assignment touches a counter. Consider a pointer that gets reassigned over and over, moving through objects O1O_1O1​ to OnO_nOn​: naive: rc(O1)--, rc(O2)++, rc(O2)--, rc(O3)++, rc(O3)--, ..., rc(On)++ coalesced: rc(O1)--, rc(On)++ All those middle updates cancel out. Levanoni and Petrank’s coalescing trick measured more than 99% of counter updates eliminated on typical Java benchmarks.\nThreads. With several threads sharing objects, counter updates may need atomic operations, which are expensive on a multiprocessor. Timing. Dropping one reference can trigger a cascade of frees bounded only by the total amount of allocated memory, and the thread can’t do anything else while it happens. Naive counting is not real-time. Second idea: start from the roots The other approach flips the question. Instead of asking “who still points at this?” for each object, ask “what can I reach?” Start from a set of root objects and follow every chain of references. Everything you touched is alive. Everything else is garbage.\nThis is tracing, and it’s so dominant that “garbage collection” on its own usually means it. The algorithms vary enormously in complexity and performance.\nOne of the best ideas in the area comes from an observation about real programs: most objects die young. A generational collector exploits that by keeping separate regions by age. New objects go into a young generation that’s collected often. Survivors get promoted to the next-oldest generation, and only occasionally does the system scan everything. Cheap, frequent cleanups handle most of the garbage.\nTracing’s weakness is timing. Collection can strike at an unpredictable moment, which produces stalls scattered through a session. Henry Baker’s incremental design shows one way to soften that. Allocation happens in one half of a region. When that half fills, the live objects are moved into the other half, and everything left behind is implicitly freed. Meanwhile the running program, which Baker calls the mutator, checks that each object it touches is in the right half and moves it across if not, while a background task hunts for the rest.\nNot creating the garbage in the first place The cheapest object to collect is the one that never reached the heap. Escape analysis is a compile-time technique that asks whether an object created inside a function can be reached from outside it. If it can, it “escapes” and must live on the heap. If not, it can sit on the stack and vanish when the function returns, bypassing heap management entirely.\nWho chose what Most mainstream languages bake collection in: Java, C#, D and Go, plus most scripting languages. Lisp was both the first functional language and the first with garbage collection.\nC never offered official support. C++ took a different road. It added garbage-collection support to its standard library in C++11, then removed it in C++23 because no compiler ever implemented it. Instead, C++ leans on RAII and smart pointers. std::unique_ptr ties an object’s lifetime to its owner, std::shared_ptr uses reference counting, and std::weak_ptr borrows without incrementing the count. Unlike a collector, RAII is deterministic. Libraries like the Boehm collector still bring tracing to C and C++, and it even has a leak-detection mode where memory stays manual but leaks and double frees get reported.\nApple’s story is the most dramatic. Garbage collection arrived in Objective-C 2.0 with OS X 10.5 in 2007. By 2012, with OS X 10.8, it was deprecated in favor of LLVM’s automatic reference counter (ARC), which had debuted in OS X 10.7. By May 2015, Apple had gone as far as forbidding it in new Mac apps on the App Store. On iOS it never shipped at all, because of responsiveness and performance concerns.\nCollectors can also be spectacularly bad. On the Altair 8800, programs with many strings and little string space could stall for long stretches. Applesoft BASIC’s collector repeatedly rescanned string descriptors, producing pauses from a few seconds to a few minutes. A replacement by Randy Wigginton cut collection time dramatically, and the windowing collector in ProDOS in 1983 was many times faster still.\nWhat it costs you The convenience isn’t free, and these are the limits that rarely make it into the marketing version:\nOverhead. The system spends computing resources deciding what to free. A 2005 study concluded a collector needed five times the memory to match the speed of idealized manual management. There’s a catch: that baseline was generated with an oracle built from profiler traces, and it’s only correct for one particular run of the program. Surprises. Interactions with the memory hierarchy can make the overhead intolerable in circumstances that are hard to predict and easy to miss in routine testing. Pauses. Unpredictable stalls are unacceptable in real-time systems, transaction processing and interactive programs. Incremental, concurrent and real-time collectors tackle this with varying trade-offs, and real-time ones can meet hard deadlines on a real-time operating system. That’s why collection remains rare on embedded devices, where resources are tight and control matters, though trimmed-down versions exist in Java ME and the .NET Micro Framework. Only memory. Network sockets, database handles, windows and file descriptors are typically not handled by the collector. They need destructors or similar mechanisms. No single answer. Java’s JVMs alone ship a menu, including Serial, Parallel, G1, ZGC and Shenandoah, because no one collector wins every workload. So the real question isn’t whether to collect garbage. It’s when you’d like to pay for it: continuously, in occasional pauses, at compile time, or by hand.\n",
+  "wordCount" : "1469",
+  "inLanguage": "en",
+  "datePublished": "2026-10-01T09:00:00+01:00",
+  "dateModified": "2026-10-01T09:00:00+01:00",
+  "author":{
+    "@type": "Person",
+    "name": "Otmane Echaibi"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/blog/posts/garbage-collection-who-takes-out-the-trash-in-your-program/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Otmane Echaibi",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/blog/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:1313/blog/" accesskey="h" title="Otmane Echaibi (Alt + H)">Otmane Echaibi</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="http://localhost:1313/blog/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/blog/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/blog/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/blog/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/blog/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/blog/contact/" title="Contact">
+                    <span>Contact</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/blog/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/blog/posts/">Posts</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
+    <h1 class="post-title entry-hint-parent">
+      Garbage Collection: Who Takes Out the Trash in Your Program?
+    </h1>
+    <div class="post-description">
+      Programs allocate memory constantly, and something has to decide when it comes back. Here is how automatic collectors decide, and what that convenience costs.
+    </div>
+    <div class="post-meta">
+
+<span title='2026-10-01 09:00:00 +0100 +0100'>October 1, 2026</span>&nbsp;·&nbsp;<span>7 min</span>&nbsp;·&nbsp;<span>1469 words</span>&nbsp;·&nbsp;<span>Otmane Echaibi</span>
+
+</div>
+  </header> <details class="toc" >
+    <summary accesskey="c" title="(Alt + C)">
+        <span class="title">Table of Contents</span>
+    </summary>
+
+    <div class="inner"><ul>
+            <li>
+                <a href="#the-problem-memory-nobody-remembers-to-return" aria-label="The problem: memory nobody remembers to return">The problem: memory nobody remembers to return</a></li>
+            <li>
+                <a href="#first-idea-keep-a-tally" aria-label="First idea: keep a tally">First idea: keep a tally</a></li>
+            <li>
+                <a href="#where-the-tally-breaks" aria-label="Where the tally breaks">Where the tally breaks</a></li>
+            <li>
+                <a href="#second-idea-start-from-the-roots" aria-label="Second idea: start from the roots">Second idea: start from the roots</a></li>
+            <li>
+                <a href="#not-creating-the-garbage-in-the-first-place" aria-label="Not creating the garbage in the first place">Not creating the garbage in the first place</a></li>
+            <li>
+                <a href="#who-chose-what" aria-label="Who chose what">Who chose what</a></li>
+            <li>
+                <a href="#what-it-costs-you" aria-label="What it costs you">What it costs you</a>
+            </li>
+        </ul>
+    </div>
+</details>
+
+  <div class="post-content md-content"><p>Every program that creates things eventually has to throw them away. You allocate memory for a list, a window, a user record, and at some point it stops being useful. Somebody has to hand that memory back. Garbage collection is the idea that the somebody should be the runtime, not you.</p>
+<p>It&rsquo;s older than most people guess. John McCarthy came up with it around 1959 so that Lisp programmers wouldn&rsquo;t have to do the bookkeeping by hand. Decades later we still argue about it, and the argument is a trade-off worth tracing carefully.</p>
+<h2 id="the-problem-memory-nobody-remembers-to-return">The problem: memory nobody remembers to return<a hidden class="anchor" aria-hidden="true" href="#the-problem-memory-nobody-remembers-to-return">#</a></h2>
+<p>With manual memory management, you decide, object by object, when something is freed. That sounds easy until it goes wrong, and it goes wrong in three classic ways:</p>
+<ul>
+<li><strong>A dangling pointer.</strong> You free a block while something still points at it. Later that pointer gets followed, but the memory may already belong to something else, and the result is unpredictable.</li>
+<li><strong>A double free.</strong> You free a region that was already freed, and maybe already handed out again.</li>
+<li><strong>A leak.</strong> An object becomes unreachable but never gets freed, and memory slowly runs out.</li>
+</ul>
+<p>A collector helps you avoid all three by taking the decision away from you. Its working definition of garbage is memory the program allocated but can no longer reach. There are two main ways to find it.</p>
+<h2 id="first-idea-keep-a-tally">First idea: keep a tally<a hidden class="anchor" aria-hidden="true" href="#first-idea-keep-a-tally">#</a></h2>
+<p>Give every object a counter holding how many references point at it. Create a reference and the counter goes up. Destroy one and it goes down. When it hits zero, nobody can possibly reach the object, so its memory is reclaimed.</p>
+<p>Let&rsquo;s just trace through what happens:</p>
+<pre tabindex="0"><code>a = new Node()      # Node: count = 1   (only &#39;a&#39; points at it)
+b = a               # Node: count = 2
+a = nothing         # Node: count = 1
+b = nothing         # Node: count = 0   -&gt; memory reclaimed right now
+</code></pre><p>That last line is the selling point. Like manual management, and unlike the tracing approach coming up next, objects die the instant their last reference does. The work also tends to touch memory that&rsquo;s already in the CPU cache, so it rarely disturbs caching or virtual memory.</p>
+<h2 id="where-the-tally-breaks">Where the tally breaks<a hidden class="anchor" aria-hidden="true" href="#where-the-tally-breaks">#</a></h2>
+<p>The first problem is cycles. Watch what happens when two objects point at each other:</p>
+<pre tabindex="0"><code>x = new Node()      # X: count = 1
+y = new Node()      # Y: count = 1
+x.next = y          # Y: count = 2
+y.next = x          # X: count = 2
+x = nothing         # X: count = 1   (y.next still points here)
+y = nothing         # Y: count = 1   (x.next still points here)
+# nothing in the program can reach either node,
+# yet neither count is zero
+</code></pre><p>Neither object can be collected, even though both are garbage. There are two standard escapes. CPython adds a dedicated cycle-detecting algorithm on top of its counting. The other fix is the <strong>weak reference</strong>, a pointer that doesn&rsquo;t increment the count. When its target dies, a weak reference lapses into something predictable like a null, instead of dangling.</p>
+<p>The tally has other costs too:</p>
+<ul>
+<li><strong>Space.</strong> Every object needs somewhere to store its count, commonly a pointer-sized 32 or 64 bits. On iOS 7 with ARM64, Apple squeezed the count into 19 unused bits of an object&rsquo;s class pointer so it wouldn&rsquo;t need extra space.</li>
+<li><strong>Speed.</strong> Naively, every reference assignment touches a counter. Consider a pointer that gets reassigned over and over, moving through objects <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>O</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">O_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>O</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">O_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>:</li>
+</ul>
+<pre tabindex="0"><code>naive:       rc(O1)--, rc(O2)++, rc(O2)--, rc(O3)++, rc(O3)--, ..., rc(On)++
+coalesced:   rc(O1)--, rc(On)++
+</code></pre><p>All those middle updates cancel out. Levanoni and Petrank&rsquo;s coalescing trick measured more than 99% of counter updates eliminated on typical Java benchmarks.</p>
+<ul>
+<li><strong>Threads.</strong> With several threads sharing objects, counter updates may need atomic operations, which are expensive on a multiprocessor.</li>
+<li><strong>Timing.</strong> Dropping one reference can trigger a cascade of frees bounded only by the total amount of allocated memory, and the thread can&rsquo;t do anything else while it happens. Naive counting is not real-time.</li>
+</ul>
+<h2 id="second-idea-start-from-the-roots">Second idea: start from the roots<a hidden class="anchor" aria-hidden="true" href="#second-idea-start-from-the-roots">#</a></h2>
+<p>The other approach flips the question. Instead of asking &ldquo;who still points at this?&rdquo; for each object, ask &ldquo;what can I reach?&rdquo; Start from a set of root objects and follow every chain of references. Everything you touched is alive. Everything else is garbage.</p>
+<p>This is <strong>tracing</strong>, and it&rsquo;s so dominant that &ldquo;garbage collection&rdquo; on its own usually means it. The algorithms vary enormously in complexity and performance.</p>
+<p>One of the best ideas in the area comes from an observation about real programs: most objects die young. A <strong>generational</strong> collector exploits that by keeping separate regions by age. New objects go into a young generation that&rsquo;s collected often. Survivors get promoted to the next-oldest generation, and only occasionally does the system scan everything. Cheap, frequent cleanups handle most of the garbage.</p>
+<p>Tracing&rsquo;s weakness is timing. Collection can strike at an unpredictable moment, which produces stalls scattered through a session. Henry Baker&rsquo;s incremental design shows one way to soften that. Allocation happens in one half of a region. When that half fills, the live objects are moved into the other half, and everything left behind is implicitly freed. Meanwhile the running program, which Baker calls the mutator, checks that each object it touches is in the right half and moves it across if not, while a background task hunts for the rest.</p>
+<h2 id="not-creating-the-garbage-in-the-first-place">Not creating the garbage in the first place<a hidden class="anchor" aria-hidden="true" href="#not-creating-the-garbage-in-the-first-place">#</a></h2>
+<p>The cheapest object to collect is the one that never reached the heap. <strong>Escape analysis</strong> is a compile-time technique that asks whether an object created inside a function can be reached from outside it. If it can, it &ldquo;escapes&rdquo; and must live on the heap. If not, it can sit on the stack and vanish when the function returns, bypassing heap management entirely.</p>
+<h2 id="who-chose-what">Who chose what<a hidden class="anchor" aria-hidden="true" href="#who-chose-what">#</a></h2>
+<p>Most mainstream languages bake collection in: Java, C#, D and Go, plus most scripting languages. Lisp was both the first functional language and the first with garbage collection.</p>
+<p>C never offered official support. C++ took a different road. It added garbage-collection support to its standard library in C++11, then removed it in C++23 because no compiler ever implemented it. Instead, C++ leans on RAII and smart pointers. <code>std::unique_ptr</code> ties an object&rsquo;s lifetime to its owner, <code>std::shared_ptr</code> uses reference counting, and <code>std::weak_ptr</code> borrows without incrementing the count. Unlike a collector, RAII is deterministic. Libraries like the Boehm collector still bring tracing to C and C++, and it even has a leak-detection mode where memory stays manual but leaks and double frees get reported.</p>
+<p>Apple&rsquo;s story is the most dramatic. Garbage collection arrived in Objective-C 2.0 with OS X 10.5 in 2007. By 2012, with OS X 10.8, it was deprecated in favor of LLVM&rsquo;s automatic reference counter (ARC), which had debuted in OS X 10.7. By May 2015, Apple had gone as far as forbidding it in new Mac apps on the App Store. On iOS it never shipped at all, because of responsiveness and performance concerns.</p>
+<p>Collectors can also be spectacularly bad. On the Altair 8800, programs with many strings and little string space could stall for long stretches. Applesoft BASIC&rsquo;s collector repeatedly rescanned string descriptors, producing pauses from a few seconds to a few minutes. A replacement by Randy Wigginton cut collection time dramatically, and the windowing collector in ProDOS in 1983 was many times faster still.</p>
+<h2 id="what-it-costs-you">What it costs you<a hidden class="anchor" aria-hidden="true" href="#what-it-costs-you">#</a></h2>
+<p>The convenience isn&rsquo;t free, and these are the limits that rarely make it into the marketing version:</p>
+<ul>
+<li><strong>Overhead.</strong> The system spends computing resources deciding what to free. A 2005 study concluded a collector needed five times the memory to match the speed of idealized manual management. There&rsquo;s a catch: that baseline was generated with an oracle built from profiler traces, and it&rsquo;s only correct for one particular run of the program.</li>
+<li><strong>Surprises.</strong> Interactions with the memory hierarchy can make the overhead intolerable in circumstances that are hard to predict and easy to miss in routine testing.</li>
+<li><strong>Pauses.</strong> Unpredictable stalls are unacceptable in real-time systems, transaction processing and interactive programs. Incremental, concurrent and real-time collectors tackle this with varying trade-offs, and real-time ones can meet hard deadlines on a real-time operating system. That&rsquo;s why collection remains rare on embedded devices, where resources are tight and control matters, though trimmed-down versions exist in Java ME and the .NET Micro Framework.</li>
+<li><strong>Only memory.</strong> Network sockets, database handles, windows and file descriptors are typically not handled by the collector. They need destructors or similar mechanisms.</li>
+<li><strong>No single answer.</strong> Java&rsquo;s JVMs alone ship a menu, including Serial, Parallel, G1, ZGC and Shenandoah, because no one collector wins every workload.</li>
+</ul>
+<p>So the real question isn&rsquo;t whether to collect garbage. It&rsquo;s when you&rsquo;d like to pay for it: continuously, in occasional pauses, at compile time, or by hand.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/blog/tags/garbage-collection/">Garbage Collection</a></li>
+      <li><a href="http://localhost:1313/blog/tags/memory-management/">Memory Management</a></li>
+      <li><a href="http://localhost:1313/blog/tags/john-mccarthy/">John McCarthy</a></li>
+      <li><a href="http://localhost:1313/blog/tags/lisp/">Lisp</a></li>
+      <li><a href="http://localhost:1313/blog/tags/reference-counting/">Reference Counting</a></li>
+      <li><a href="http://localhost:1313/blog/tags/tracing-garbage-collection/">Tracing Garbage Collection</a></li>
+      <li><a href="http://localhost:1313/blog/tags/generational-garbage-collection/">Generational Garbage Collection</a></li>
+      <li><a href="http://localhost:1313/blog/tags/bakers-algorithm/">Baker&#39;s Algorithm</a></li>
+      <li><a href="http://localhost:1313/blog/tags/escape-analysis/">Escape Analysis</a></li>
+      <li><a href="http://localhost:1313/blog/tags/automatic-reference-counting/">Automatic Reference Counting</a></li>
+      <li><a href="http://localhost:1313/blog/tags/raii/">RAII</a></li>
+      <li><a href="http://localhost:1313/blog/tags/smart-pointers/">Smart Pointers</a></li>
+      <li><a href="http://localhost:1313/blog/tags/dangling-pointers/">Dangling Pointers</a></li>
+      <li><a href="http://localhost:1313/blog/tags/memory-leaks/">Memory Leaks</a></li>
+      <li><a href="http://localhost:1313/blog/tags/weak-references/">Weak References</a></li>
+      <li><a href="http://localhost:1313/blog/tags/boehm-collector/">Boehm Collector</a></li>
+      <li><a href="http://localhost:1313/blog/tags/real-time-systems/">Real-Time Systems</a></li>
+      <li><a href="http://localhost:1313/blog/tags/java/">Java</a></li>
+      <li><a href="http://localhost:1313/blog/tags/go/">Go</a></li>
+      <li><a href="http://localhost:1313/blog/tags/cpython/">CPython</a></li>
+      <li><a href="http://localhost:1313/blog/tags/ios/">IOS</a></li>
+      <li><a href="http://localhost:1313/blog/tags/applesoft-basic/">Applesoft BASIC</a></li>
+    </ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/blog/">Otmane Echaibi</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a><div style="text-align:center;font-size:.85em;margin-top:6px;">
+  <a href="/blog/privacy/">Privacy</a> &middot;
+  <a href="/blog/contact/">Contact</a> &middot;
+  <a href="/blog/index.xml">RSS</a>
+</div>
+
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

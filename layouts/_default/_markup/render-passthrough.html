@@ -1,0 +1,9 @@
+{{- /* Server-side KaTeX: turns $...$ and $$...$$ into HTML+MathML at build time (no JavaScript, no CDN). */ -}}
+{{- $opts := dict "output" "htmlAndMathml" "displayMode" (eq .Type "block") }}
+{{- with try (transform.ToMath .Inner $opts) }}
+  {{- with .Err }}
+    {{- errorf "KaTeX could not render math at %s: %s" $.Position . }}
+  {{- else }}
+    {{- .Value }}
+  {{- end }}
+{{- end -}}

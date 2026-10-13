@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Exponentials on Otmane Echaibi</title>
+    <link>http://localhost:37011/blog/tags/exponentials/</link>
+    <description>Recent content in Exponentials on Otmane Echaibi</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 27 Sep 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:37011/blog/tags/exponentials/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Logarithm: How Many Times Do You Multiply?</title>
+      <link>http://localhost:37011/blog/posts/the-logarithm-how-many-times-do-you-multiply/</link>
+      <pubDate>Sun, 27 Sep 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:37011/blog/posts/the-logarithm-how-many-times-do-you-multiply/</guid>
+      <description>Logarithms aren&amp;#39;t &amp;#39;the inverse of exponentiation&amp;#39;. They&amp;#39;re the answer to a much more natural question: how many multiplications did it take to get here?</description>
+    </item>
+  </channel>
+</rss>

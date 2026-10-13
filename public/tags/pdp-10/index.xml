@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>PDP-10 on Otmane Echaibi</title>
+    <link>http://localhost:37011/blog/tags/pdp-10/</link>
+    <description>Recent content in PDP-10 on Otmane Echaibi</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 28 Sep 2026 09:00:00 +0100</lastBuildDate>
+    <atom:link href="http://localhost:37011/blog/tags/pdp-10/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Jargon File: How a Lab&#39;s Private Slang Became a Style Guide</title>
+      <link>http://localhost:37011/blog/posts/the-jargon-file-how-a-labs-private-slang-became-a-style-guide/</link>
+      <pubDate>Mon, 28 Sep 2026 09:00:00 +0100</pubDate>
+      <guid>http://localhost:37011/blog/posts/the-jargon-file-how-a-labs-private-slang-became-a-style-guide/</guid>
+      <description>Trace a shared text file from a Stanford directory to the Chicago Manual of Style and see what survives when the machines that hosted a culture are switched off.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+# new-post <slug> [--open]
+# Creates content/posts/<slug>.md.
+#  - If your clipboard holds a Hugo post (starts with +++), it is written into the file.
+#  - Otherwise the file is created from archetypes/default.md via `hugo new`.
+# Works from any directory once symlinked, e.g.:
+#   ln -s "$PWD/bin/new-post" ~/.local/bin/new-post
+set -euo pipefail
+
+usage() { echo "usage: new-post <slug> [--open]" >&2; exit 2; }
+
+SLUG="${1:-}"; OPEN="${2:-}"
+[ -n "$SLUG" ] || usage
+[[ "$SLUG" =~ ^[a-z0-9]+(-[a-z0-9]+)*$ ]] || {
+  echo "error: slug must be lowercase kebab-case (a-z, 0-9, hyphens): '$SLUG'" >&2; exit 1; }
+
+# resolve the blog root (parent of bin/), following one level of symlink
+SELF="$0"; [ -L "$SELF" ] && SELF="$(readlink "$SELF")"
+ROOT="$(cd "$(dirname "$SELF")/.." && pwd)"
+FILE="$ROOT/content/posts/$SLUG.md"
+
+[ ! -e "$FILE" ] || { echo "error: $FILE already exists (not overwriting)" >&2; exit 1; }
+mkdir -p "$ROOT/content/posts"
+
+clip() {
+  if   command -v pbpaste  >/dev/null 2>&1; then pbpaste
+  elif command -v wl-paste >/dev/null 2>&1; then wl-paste --no-newline 2>/dev/null
+  elif command -v xclip    >/dev/null 2>&1; then xclip -selection clipboard -o 2>/dev/null
+  elif command -v xsel     >/dev/null 2>&1; then xsel --clipboard --output 2>/dev/null
+  elif command -v powershell.exe >/dev/null 2>&1; then powershell.exe -noprofile -command Get-Clipboard | tr -d '\r'
+  else return 1; fi
+}
+
+CONTENT="$(clip 2>/dev/null || true)"
+# strip an accidental ```markdown ... ``` wrapper
+CONTENT="$(printf '%s\n' "$CONTENT" | sed -e '1{/^```/d}' -e '${/^```$/d}')"
+
+if [ "$(printf '%s' "$CONTENT" | head -c 3)" = "+++" ]; then
+  printf '%s\n' "$CONTENT" > "$FILE"
+  # warn if the slug in the file differs from the one you typed
+  FSLUG="$(grep -m1 '^slug *=' "$FILE" | sed -E 's/^slug *= *"(.*)"/\1/')"
+  [ -z "$FSLUG" ] || [ "$FSLUG" = "$SLUG" ] || \
+    echo "warning: front-matter slug is '$FSLUG' but the file is named '$SLUG'" >&2
+  echo "created from clipboard: $FILE"
+else
+  (cd "$ROOT" && hugo new "posts/$SLUG.md" >/dev/null)
+  echo "clipboard had no Hugo post; created from archetype: $FILE"
+fi
+
+if [ "$OPEN" = "--open" ]; then "${EDITOR:-code}" "$FILE"; fi

@@ -1,0 +1,114 @@
+baseURL = "https://CHANGE-ME.gitlab.io/blog/"   # <- set to your real Pages URL / custom domain
+locale = "en-us"
+title = "Otmane Echaibi"
+theme = "PaperMod"
+
+enableRobotsTXT = true
+enableEmoji = true
+hasCJKLanguage = false
+pagerSize = 8
+summaryLength = 40
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]   # JSON is required by PaperMod's search page
+
+[minify]
+  minifyOutput = true
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+  [markup.goldmark.extensions.passthrough]
+    enable = true
+    [markup.goldmark.extensions.passthrough.delimiters]
+      block = [['\[', '\]'], ['$$', '$$']]
+      inline = [['\(', '\)'], ['$', '$']]
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[params]
+  env = "production"
+  description = "Notes on systems, math, astronomy and books, by Otmane Echaibi. Written by a person."
+  author = "Otmane Echaibi"
+  images = ["images/profile.png"]   # default image for link previews
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = true
+  ShowToc = true
+  TocOpen = false
+  ShowFullTextinRSS = true          # readers get the whole post in their feed reader
+  ShowRssButtonInSectionTermList = true
+  disableSpecial1stPost = false
+  DateFormat = "January 2, 2006"
+
+  [params.assets]
+    disableHLJS = true              # code is highlighted at build time (Chroma), so skip the JS
+    favicon = "favicon.ico"
+    favicon16x16 = "favicon-16x16.png"
+    favicon32x32 = "favicon-32x32.png"
+    apple_touch_icon = "apple-touch-icon.png"
+    safari_pinned_tab = "favicon-32x32.png"
+
+  # Front page: just the one line, plus two doors.
+  [params.profileMode]
+    enabled = true
+    title = "systems hacker"
+    subtitle = ""
+    imageUrl = "images/profile.png"
+    imageTitle = "Otmane Echaibi"
+    imageWidth = 160
+    imageHeight = 160
+
+    [[params.profileMode.buttons]]
+      name = "Posts"
+      url = "posts/"
+    [[params.profileMode.buttons]]
+      name = "About"
+      url = "about/"
+
+  [params.fuseOpts]
+    isCaseSensitive = false
+    shouldSort = true
+    location = 0
+    distance = 1000
+    threshold = 0.4
+    minMatchCharLength = 0
+    keys = ["title", "permalink", "summary", "content"]
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
+    weight = 10
+  [[menu.main]]
+    identifier = "categories"
+    name = "Categories"
+    url = "/categories/"
+    weight = 20
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 30
+  [[menu.main]]
+    identifier = "search"
+    name = "Search"
+    url = "/search/"
+    weight = 40
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 50
+  [[menu.main]]
+    identifier = "contact"
+    name = "Contact"
+    url = "/contact/"
+    weight = 60

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Applesoft BASIC on Otmane Echaibi</title>
+    <link>http://localhost:1313/blog/tags/applesoft-basic/</link>
+    <description>Recent content in Applesoft BASIC on Otmane Echaibi</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 01 Oct 2026 09:00:00 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/tags/applesoft-basic/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Garbage Collection: Who Takes Out the Trash in Your Program?</title>
+      <link>http://localhost:1313/blog/posts/garbage-collection-who-takes-out-the-trash-in-your-program/</link>
+      <pubDate>Thu, 01 Oct 2026 09:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/blog/posts/garbage-collection-who-takes-out-the-trash-in-your-program/</guid>
+      <description>Programs allocate memory constantly, and something has to decide when it comes back. Here is how automatic collectors decide, and what that convenience costs.</description>
+    </item>
+  </channel>
+</rss>
