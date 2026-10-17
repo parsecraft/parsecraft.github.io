@@ -1,6 +1,6 @@
 +++
 title = "Contact"
-description = "How to reach Otmane Echaibi."
+description = "How to reach Tobias Kestrel."
 hidemeta = true
 showtoc = false
 +++
@@ -9,8 +9,8 @@ Found a mistake? Have a question, a topic request, or just want to talk math and
 
 ## Reach me
 
-- **Email:** `sudotoo@protonmail.com` <!-- replace with your real address -->
-- **GitLab:** `https://gitlab.com/alephlam` <!-- replace -->
+- **Email:** `grumble-chief-eats@duck.com` <!-- replace with your real address -->
+- **github:** `https://github.com/parsecraft/` <!-- replace -->
 
 ## Corrections
 

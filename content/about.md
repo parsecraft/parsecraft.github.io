@@ -1,11 +1,11 @@
 +++
 title = "About"
-description = "Otmane Echaibi, systems hacker, minimalist, writer, amateur mathematician and marathon runner."
+description = "Tobias Kestrel, systems hacker, writer."
 hidemeta = true
 showtoc = false
 +++
 
-I'm **Otmane Echaibi**, a systems hacker. I live in the terminal, and my home is the internet.
+I'm **Tobias Kestrel**, a systems hacker. I live in the terminal, and my home is the internet.
 
 I write Python, Fish, Lua, Go, Rust and JavaScript, bash, sql. Each one has one job, and Python sits in the middle:
 

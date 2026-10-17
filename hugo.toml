@@ -1,6 +1,6 @@
-baseURL = "https://CHANGE-ME.gitlab.io/blog/"   # <- set to your real Pages URL / custom domain
+baseURL = "https://parsecraft.gitlab.io/blog/"   # <- set to your real Pages URL / custom domain
 locale = "en-us"
-title = "Otmane Echaibi"
+title = "Tobias Kestrel"
 theme = "PaperMod"
 
 enableRobotsTXT = true
@@ -30,8 +30,8 @@ summaryLength = 40
 
 [params]
   env = "production"
-  description = "Notes on systems, math, astronomy and books, by Otmane Echaibi. Written by a person."
-  author = "Otmane Echaibi"
+  description = "bookworm"
+  author = "Tobias Kestrel"
   images = ["images/profile.png"]   # default image for link previews
   defaultTheme = "auto"
   ShowReadingTime = true
@@ -61,7 +61,7 @@ summaryLength = 40
     title = "systems hacker"
     subtitle = ""
     imageUrl = "images/profile.png"
-    imageTitle = "Otmane Echaibi"
+    imageTitle = "Tobias Kestrel"
     imageWidth = 160
     imageHeight = 160
 

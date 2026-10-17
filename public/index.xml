@@ -1,299 +1,96 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Otmane Echaibi</title><link>http://localhost:1313/blog/</link><description>Recent content on Otmane Echaibi</description><image><title>Otmane Echaibi</title><url>http://localhost:1313/blog/images/profile.png</url><link>http://localhost:1313/blog/images/profile.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 10 Oct 2026 11:30:00 +0100</lastBuildDate><atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Choosing a Linux distribution is choosing what you will give up</title><link>http://localhost:1313/blog/posts/choosing-a-linux-distribution-is-choosing-what-you-will-give-up/</link><pubDate>Sat, 10 Oct 2026 11:30:00 +0100</pubDate><guid>http://localhost:1313/blog/posts/choosing-a-linux-distribution-is-choosing-what-you-will-give-up/</guid><description>Every Linux distribution is a set of decisions about who will sit at the machine, so choosing one means deciding which trade-offs you are willing to live with.</description><content:encoded><![CDATA[<p>A distribution is a set of decisions someone else made about who would be sitting at the machine. Choosing one means choosing which of those decisions to inherit, so the useful question is less &ldquo;which is best?&rdquo; than &ldquo;what am I willing to give up?&rdquo;</p>
-<h2 id="newest-and-proven-pull-against-each-other">Newest and proven pull against each other</h2>
-<p>Software that has just been released has, by definition, spent the least time in other people&rsquo;s hands. A system that ships the newest versions gives up the long record of use that a system built for reliability leans on, and the reverse holds too. If one system were both the newest and the most proven, there would be nothing to choose. In practice Fedora and Arch are the names people reach for when they want the latest software, while Debian and CentOS are the usual picks for a server that must stay stable.</p>
-<h2 id="effort-against-control">Effort against control</h2>
-<p>Ubuntu and Linux Mint are friendly to newcomers and well documented, which makes them the sensible first system. Arch sits at the other pole: every part of the system is yours to steer, and the price is that you must already understand a good deal, or learn it fast. Picture the difference between heating a ready meal and cooking from raw ingredients. The first is on the table in minutes and teaches you little. The second teaches you what a meal is made of, and the early attempts are worse.</p>
-<h2 id="who-answers-when-it-breaks">Who answers when it breaks</h2>
-<p>Red Hat Enterprise Linux and SUSE Linux Enterprise Server carry formal certification and support aimed at businesses, and both are common where companies run servers and cloud infrastructure. That matters to a person as well as a machine: if the goal is a career in enterprise IT or cloud administration, learning the Red Hat family is an advantage.</p>
-<h2 id="the-family-name-hides-where-a-system-sits">The family name hides where a system sits</h2>
-<p>Lineage and position are different things. Fedora, CentOS and RHEL belong to one family, the one associated with enterprise use and reliability. Yet Fedora is the answer for someone who wants the newest software, CentOS for a stable server, and RHEL for a business that needs backing. One household, three answers to the same questions. Treat the family as a first guess about where a system sits, then check the particular member.</p>
-<h2 id="one-choice-traced-to-the-end">One choice, traced to the end</h2>
-<p>Start with a question that comes before the others: will anyone click around on this machine? Desktop editions arrive with a graphical interface, such as GNOME, KDE or XFCE, and everyday applications already installed. Server editions are a different kind of system. Now run a case, someone who wants to work in cloud administration and has no need for a screen.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">goal             work in cloud administration
-</span></span><span class="line"><span class="cl">screen needed?   no                 -&gt; a server edition
-</span></span><span class="line"><span class="cl">newest software? no                 -&gt; proven over fresh
-</span></span><span class="line"><span class="cl">backing needed?  yes                -&gt; Red Hat or SUSE family
-</span></span><span class="line"><span class="cl">shortlist        RHEL, SLES
-</span></span><span class="line"><span class="cl">cost             the newest software, most likely
-</span></span></code></pre></div><p>The last line is the one worth saying aloud. A choice that cannot name its cost is unfinished. The beginner&rsquo;s case shows why that is hard: when you cannot yet say what you would give up, take the system that asks the least of you at the start, because a well-documented one leaves your questions with answers waiting.</p>
-<h2 id="what-this-leaves-unsettled">What this leaves unsettled</h2>
-<p>These three trades are my own sorting, and they overlap. A system may be easy partly because it is stable, which would make effort and freshness less independent than they look. The trace also treats a person as fixed, though someone who starts on Ubuntu can want more control a year later. Does what they learned carry over toward Arch, or does it have to be rebuilt? And is the family label ever more than a useful guess for someone still choosing, as opposed to someone already inside one?</p>
-]]></content:encoded></item><item><title>Multiplying Without a Times Table: The Neighbor Trick</title><link>http://localhost:1313/blog/posts/multiplying-without-a-times-table-the-neighbor-trick/</link><pubDate>Tue, 06 Oct 2026 09:00:00 +0200</pubDate><guid>http://localhost:1313/blog/posts/multiplying-without-a-times-table-the-neighbor-trick/</guid><description>Every digit of a product can be built from just a digit and the one beside it, and that small idea unlocks a whole system of mental arithmetic.</description><content:encoded><![CDATA[<p>Jakow Trachtenberg was a Ukrainian-Jewish mathematician and engineer who ended up a prisoner in a German Nazi concentration camp. To keep his mind occupied, he built a system of rapid mental calculation: a set of small, memorizable operations for multiplying, dividing and adding quickly. The 1960 book that later presented his method describes seven years in various camps, with most of the work done without pen or paper.</p>
-<p>Its pitch is a strange one: multiplication without multiplication tables. How could that possibly work?</p>
-<p>Let&rsquo;s start with the easiest case and find out.</p>
-<h2 id="start-with-eleven">Start with eleven</h2>
-<p>Take <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3425</mn></mrow><annotation encoding="application/x-tex">3425</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">3425</span></span></span></span> and multiply it by <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>11</mn></mrow><annotation encoding="application/x-tex">11</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">11</span></span></span></span>. Don&rsquo;t reach for the standard method. Ask instead what multiplying by <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>11</mn></mrow><annotation encoding="application/x-tex">11</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">11</span></span></span></span> actually means.</p>
-<p><strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>11</mn><mi>x</mi><mo>=</mo><mn>10</mn><mi>x</mi><mo>+</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">11x = 10x + x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">11</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">10</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span></strong></p>
-<p>Multiplying by ten slides every digit one place to the left. Adding <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> back in means that each place in the answer receives two digits: the digit that was already there, and the digit that slid in from its right.</p>
-<p>So every digit of the answer is a digit plus its <em>neighbor</em>, where &ldquo;neighbor&rdquo; means the digit immediately to its right. Put a zero in front of the number and a zero behind it, so that the ends have neighbors too, and the work looks like this:</p>
-<table>
-	<thead>
-			<tr>
-					<th style="text-align: center">Digit</th>
-					<th style="text-align: center">Its neighbor</th>
-					<th style="text-align: center">Sum</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td style="text-align: center">0</td>
-					<td style="text-align: center">3</td>
-					<td style="text-align: center">3</td>
-			</tr>
-			<tr>
-					<td style="text-align: center">3</td>
-					<td style="text-align: center">4</td>
-					<td style="text-align: center">7</td>
-			</tr>
-			<tr>
-					<td style="text-align: center">4</td>
-					<td style="text-align: center">2</td>
-					<td style="text-align: center">6</td>
-			</tr>
-			<tr>
-					<td style="text-align: center">2</td>
-					<td style="text-align: center">5</td>
-					<td style="text-align: center">7</td>
-			</tr>
-			<tr>
-					<td style="text-align: center">5</td>
-					<td style="text-align: center">0</td>
-					<td style="text-align: center">5</td>
-			</tr>
-	</tbody>
-</table>
-<p>Read down the last column and you get <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3425</mn><mo>×</mo><mn>11</mn><mo>=</mo><mn>37675</mn></mrow><annotation encoding="application/x-tex">3425 \times 11 = 37675</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">3425</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">11</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">37675</span></span></span></span>. No times table was involved, only addition. When a sum passes nine, you write the units digit and carry the extra to the next place on the left.</p>
-<p>Notice the direction, too. You work from right to left, producing the answer one digit at a time, and each digit needs only a glance at two neighbors.</p>
-<h2 id="why-does-twelve-work-the-same-way">Why does twelve work the same way?</h2>
-<p>Run the same argument again, now with <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>12</mn></mrow><annotation encoding="application/x-tex">12</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">12</span></span></span></span>.</p>
-<p><strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>12</mn><mi>x</mi><mo>=</mo><mn>10</mn><mi>x</mi><mo>+</mo><mn>2</mn><mi>x</mi></mrow><annotation encoding="application/x-tex">12x = 10x + 2x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">12</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">10</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mord mathnormal">x</span></span></span></span></strong></p>
-<p>The <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mi>x</mi></mrow><annotation encoding="application/x-tex">10x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">10</span><span class="mord mathnormal">x</span></span></span></span> part again hands each place the digit from its right. The <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>x</mi></mrow><annotation encoding="application/x-tex">2x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mord mathnormal">x</span></span></span></span> part adds double the digit that is already there. So the rule is: double each digit, then add its neighbor.</p>
-<p>Try it on <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>316</mn></mrow><annotation encoding="application/x-tex">316</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">316</span></span></span></span>, with a zero written in front. Working from the right:</p>
-<table>
-	<thead>
-			<tr>
-					<th style="text-align: center">Digit</th>
-					<th style="text-align: center">Double + neighbor</th>
-					<th style="text-align: center">Carry in</th>
-					<th style="text-align: center">Write</th>
-					<th style="text-align: center">Carry out</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td style="text-align: center">6</td>
-					<td style="text-align: center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>12</mn><mo>+</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">12 + 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">12</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span></td>
-					<td style="text-align: center">0</td>
-					<td style="text-align: center">2</td>
-					<td style="text-align: center">1</td>
-			</tr>
-			<tr>
-					<td style="text-align: center">1</td>
-					<td style="text-align: center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>+</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">2 + 6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">6</span></span></span></span></td>
-					<td style="text-align: center">1</td>
-					<td style="text-align: center">9</td>
-					<td style="text-align: center">0</td>
-			</tr>
-			<tr>
-					<td style="text-align: center">3</td>
-					<td style="text-align: center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>6</mn><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">6 + 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">6</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></td>
-					<td style="text-align: center">0</td>
-					<td style="text-align: center">7</td>
-					<td style="text-align: center">0</td>
-			</tr>
-			<tr>
-					<td style="text-align: center">0</td>
-					<td style="text-align: center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>+</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">0 + 3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">3</span></span></span></span></td>
-					<td style="text-align: center">0</td>
-					<td style="text-align: center">3</td>
-					<td style="text-align: center">0</td>
-			</tr>
-	</tbody>
-</table>
-<p>That gives <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>316</mn><mo>×</mo><mn>12</mn><mo>=</mo><mn>3792</mn></mrow><annotation encoding="application/x-tex">316 \times 12 = 3792</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">316</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">12</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">3792</span></span></span></span>.</p>
-<p>Both rules came from splitting the multiplier into a ten plus something simple. Keep that in mind, because it carries almost everything that follows.</p>
-<h2 id="the-strange-one-five">The strange one: five</h2>
-<p>What is the equivalent trick for <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn></mrow><annotation encoding="application/x-tex">5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">5</span></span></span></span>? Here it helps to notice that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn></mrow><annotation encoding="application/x-tex">5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">5</span></span></span></span> is half of ten:</p>
-<p><strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mi>x</mi><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mrow><mn>10</mn><mi>x</mi></mrow><mn>2</mn></mfrac></mstyle></mrow><annotation encoding="application/x-tex">5x = \dfrac{10x}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">5</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0074em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">10</span><span class="mord mathnormal">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></strong></p>
-<p>Halving is a digit-by-digit operation too. Multiplying by ten slides the digits left, and halving then pulls half of each digit down into place. The result is again a rule about neighbors:</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Otmane Echaibi</title><link>http://localhost:1313/blog/</link><description>Recent content on Otmane Echaibi</description><image><title>Otmane Echaibi</title><url>http://localhost:1313/blog/images/profile.png</url><link>http://localhost:1313/blog/images/profile.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 17 Oct 2026 10:00:00 +0100</lastBuildDate><atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Your Gut Feeling Is a Con Artist (and You're the Mark)</title><link>http://localhost:1313/blog/posts/your-gut-feeling-is-a-con-artist-and-youre-the-mark/</link><pubDate>Sat, 17 Oct 2026 10:00:00 +0100</pubDate><guid>http://localhost:1313/blog/posts/your-gut-feeling-is-a-con-artist-and-youre-the-mark/</guid><description>Seven ideas stolen from Daniel Kahneman&amp;#39;s Thinking, Fast and Slow that will make you trust your own confidence a lot less, and decide a lot better.</description><content:encoded><![CDATA[<p>Here is the most unsettling sentence I took from a 500-page book:</p>
+<p><strong>How sure you feel tells you almost nothing about whether you&rsquo;re right.</strong></p>
+<p>It tells you something else: how smoothly your brain managed to assemble a story. That&rsquo;s it. Smooth story, high confidence. Messy story, doubt. Truth is not part of the calculation.</p>
+<p>That&rsquo;s the thread running through Daniel Kahneman&rsquo;s <em>Thinking, Fast and Slow</em>, the life&rsquo;s work of a psychologist who won the Nobel Prize in Economics in 2002. I read it so you don&rsquo;t have to, and kept only the ideas worth stealing. Here are the seven that survived.</p>
+<hr>
+<h2 id="1-what-you-see-is-all-there-is">1. What you see is all there is</h2>
+<p>Your fast, automatic mind (Kahneman calls it System 1) works with whatever information happens to be lying around, builds the best story it can from it, and hands you the result with a feeling of certainty.</p>
+<p>It never says &ldquo;I&rsquo;m missing something.&rdquo; Information it doesn&rsquo;t have simply doesn&rsquo;t exist for it. Kahneman&rsquo;s abbreviation for this is <strong>WYSIATI</strong>: <em>what you see is all there is</em>.</p>
+<p>The experiment that made me wince: people read a legal case, then heard from a lawyer for one side only. They were told they were hearing one side. They could have easily imagined the other lawyer&rsquo;s pitch. Still, they were more confident in their verdicts than people who heard both sides.</p>
+<p>Less information, more confidence. A thin story is easier to make coherent than a rich one.</p>
+<p><strong>Steal this:</strong> when you feel certain, ask &ldquo;what would I need to know that I don&rsquo;t know?&rdquo; Then go find it before you decide.</p>
+<hr>
+<h2 id="2-you-rarely-answer-the-question-you-were-asked">2. You rarely answer the question you were asked</h2>
+<p>When a question is hard, your mind quietly swaps it for an easier one and answers <em>that</em>, without telling you.</p>
 <ul>
-<li>Take half of the digit&rsquo;s neighbor, rounding down.</li>
-<li>Add <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn></mrow><annotation encoding="application/x-tex">5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">5</span></span></span></span> if the digit itself is odd.</li>
+<li><em>How happy are you with your life?</em> becomes <em>What&rsquo;s my mood right now?</em></li>
+<li><em>Will this candidate be a good leader?</em> becomes <em>Does she look like a leader?</em></li>
+<li><em>How popular will the president be in six months?</em> becomes <em>How popular is the president today?</em></li>
 </ul>
-<p>Why the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn></mrow><annotation encoding="application/x-tex">5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">5</span></span></span></span>? Because an odd digit has half a unit left over when you halve it, and that half spills into the place beside it as a <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn></mrow><annotation encoding="application/x-tex">5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">5</span></span></span></span>. The system&rsquo;s own phrasing is that the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn></mrow><annotation encoding="application/x-tex">5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">5</span></span></span></span> makes up for the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.5</mn></mrow><annotation encoding="application/x-tex">0.5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.5</span></span></span></span> dropped in the next digit&rsquo;s calculation.</p>
-<p>Trachtenberg wanted this halving to be instant. Nobody should think &ldquo;half of seven is three and a half, so three.&rdquo; You should think &ldquo;seven, three,&rdquo; and move on.</p>
-<p>Check it on <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>93</mn><mo>×</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">93 \times 5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">93</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">5</span></span></span></span>:</p>
-<table>
-	<thead>
-			<tr>
-					<th style="text-align: center">Digit</th>
-					<th style="text-align: center">Half of neighbor</th>
-					<th style="text-align: center">Odd bonus</th>
-					<th style="text-align: center">Result</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td style="text-align: center">3</td>
-					<td style="text-align: center">0 (trailing zero)</td>
-					<td style="text-align: center">+5</td>
-					<td style="text-align: center">5</td>
-			</tr>
-			<tr>
-					<td style="text-align: center">9</td>
-					<td style="text-align: center">1 (half of 3)</td>
-					<td style="text-align: center">+5</td>
-					<td style="text-align: center">6</td>
-			</tr>
-			<tr>
-					<td style="text-align: center">0 (leading)</td>
-					<td style="text-align: center">4 (half of 9)</td>
-					<td style="text-align: center">none</td>
-					<td style="text-align: center">4</td>
-			</tr>
-	</tbody>
-</table>
-<p>Read upward and you get <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>465</mn></mrow><annotation encoding="application/x-tex">465</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">465</span></span></span></span>.</p>
-<h2 id="why-can-we-build-six-and-seven-from-five">Why can we build six and seven from five?</h2>
-<p>We have already seen the pattern, so the next step is to split the multiplier again.</p>
-<p><strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>6</mn><mi>x</mi><mo>=</mo><mn>5</mn><mi>x</mi><mo>+</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">6x = 5x + x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">6</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">5</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span></strong> and <strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>7</mn><mi>x</mi><mo>=</mo><mn>5</mn><mi>x</mi><mo>+</mo><mn>2</mn><mi>x</mi></mrow><annotation encoding="application/x-tex">7x = 5x + 2x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">7</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">5</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mord mathnormal">x</span></span></span></span></strong></p>
-<p>For six, take the five-rule and add the digit itself. For seven, take the five-rule and add double the digit. So the rule for six is: add half of the neighbor to each digit, plus <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn></mrow><annotation encoding="application/x-tex">5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">5</span></span></span></span> if the digit is odd. The rule for seven is: double each digit, add half of the neighbor, plus <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn></mrow><annotation encoding="application/x-tex">5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">5</span></span></span></span> if the digit is odd.</p>
-<p>Here is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>357</mn><mo>×</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">357 \times 6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">357</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">6</span></span></span></span>, from the right:</p>
-<table>
-	<thead>
-			<tr>
-					<th style="text-align: center">Digit</th>
-					<th style="text-align: center">Sum</th>
-					<th style="text-align: center">Write</th>
-					<th style="text-align: center">Carry</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td style="text-align: center">7</td>
-					<td style="text-align: center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>7</mn><mo>+</mo><mn>0</mn><mo>+</mo><mn>5</mn><mo>=</mo><mn>12</mn></mrow><annotation encoding="application/x-tex">7 + 0 + 5 = 12</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">7</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">12</span></span></span></span></td>
-					<td style="text-align: center">2</td>
-					<td style="text-align: center">1</td>
-			</tr>
-			<tr>
-					<td style="text-align: center">5</td>
-					<td style="text-align: center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mo>+</mo><mn>3</mn><mo>+</mo><mn>5</mn><mo>+</mo><mn>1</mn><mo>=</mo><mn>14</mn></mrow><annotation encoding="application/x-tex">5 + 3 + 5 + 1 = 14</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">14</span></span></span></span></td>
-					<td style="text-align: center">4</td>
-					<td style="text-align: center">1</td>
-			</tr>
-			<tr>
-					<td style="text-align: center">3</td>
-					<td style="text-align: center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>5</mn><mo>+</mo><mn>1</mn><mo>=</mo><mn>11</mn></mrow><annotation encoding="application/x-tex">3 + 2 + 5 + 1 = 11</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">11</span></span></span></span></td>
-					<td style="text-align: center">1</td>
-					<td style="text-align: center">1</td>
-			</tr>
-			<tr>
-					<td style="text-align: center">0</td>
-					<td style="text-align: center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>+</mo><mn>1</mn><mo>+</mo><mn>1</mn><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">0 + 1 + 1 = 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span></td>
-					<td style="text-align: center">2</td>
-					<td style="text-align: center">0</td>
-			</tr>
-	</tbody>
-</table>
-<p>That gives <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2142</mn></mrow><annotation encoding="application/x-tex">2142</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2142</span></span></span></span>. And <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>693</mn><mo>×</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">693 \times 7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">693</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">7</span></span></span></span> works the same way:</p>
-<table>
-	<thead>
-			<tr>
-					<th style="text-align: center">Digit</th>
-					<th style="text-align: center">Sum</th>
-					<th style="text-align: center">Write</th>
-					<th style="text-align: center">Carry</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td style="text-align: center">3</td>
-					<td style="text-align: center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>6</mn><mo>+</mo><mn>0</mn><mo>+</mo><mn>5</mn><mo>+</mo><mn>0</mn><mo>=</mo><mn>11</mn></mrow><annotation encoding="application/x-tex">6 + 0 + 5 + 0 = 11</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">6</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">11</span></span></span></span></td>
-					<td style="text-align: center">1</td>
-					<td style="text-align: center">1</td>
-			</tr>
-			<tr>
-					<td style="text-align: center">9</td>
-					<td style="text-align: center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>18</mn><mo>+</mo><mn>1</mn><mo>+</mo><mn>5</mn><mo>+</mo><mn>1</mn><mo>=</mo><mn>25</mn></mrow><annotation encoding="application/x-tex">18 + 1 + 5 + 1 = 25</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">18</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">25</span></span></span></span></td>
-					<td style="text-align: center">5</td>
-					<td style="text-align: center">2</td>
-			</tr>
-			<tr>
-					<td style="text-align: center">6</td>
-					<td style="text-align: center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>12</mn><mo>+</mo><mn>4</mn><mo>+</mo><mn>0</mn><mo>+</mo><mn>2</mn><mo>=</mo><mn>18</mn></mrow><annotation encoding="application/x-tex">12 + 4 + 0 + 2 = 18</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">12</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">18</span></span></span></span></td>
-					<td style="text-align: center">8</td>
-					<td style="text-align: center">1</td>
-			</tr>
-			<tr>
-					<td style="text-align: center">0</td>
-					<td style="text-align: center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>+</mo><mn>3</mn><mo>+</mo><mn>0</mn><mo>+</mo><mn>1</mn><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">0 + 3 + 0 + 1 = 4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">4</span></span></span></span></td>
-					<td style="text-align: center">4</td>
-					<td style="text-align: center">0</td>
-			</tr>
-	</tbody>
-</table>
-<p>The answer is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4851</mn></mrow><annotation encoding="application/x-tex">4851</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">4851</span></span></span></span>.</p>
-<p>Notice what is missing: no row recalls a product from a table. Everything is doubling, halving, adding, carrying and one tiny neighbor lookup.</p>
-<h2 id="the-ones-that-use-subtraction">The ones that use subtraction</h2>
-<p>A few of the rules flip the idea around, using complements instead. For <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9</mn></mrow><annotation encoding="application/x-tex">9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">9</span></span></span></span>, you subtract the rightmost digit from <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn></mrow><annotation encoding="application/x-tex">10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">10</span></span></span></span>, subtract each remaining digit from <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9</mn></mrow><annotation encoding="application/x-tex">9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">9</span></span></span></span>, and add the neighbor. For the leading zero, you subtract <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> from the neighbor.</p>
-<p>Try <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2130</mn><mo>×</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">2130 \times 9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2130</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">9</span></span></span></span>:</p>
-<table>
-	<thead>
-			<tr>
-					<th style="text-align: center">Digit</th>
-					<th style="text-align: center">Calculation</th>
-					<th style="text-align: center">Write</th>
-					<th style="text-align: center">Carry</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td style="text-align: center">0</td>
-					<td style="text-align: center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>10</mn><mo>−</mo><mn>0</mn><mo stretchy="false">)</mo><mo>+</mo><mn>0</mn><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">(10 - 0) + 0 = 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">10</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">10</span></span></span></span></td>
-					<td style="text-align: center">0</td>
-					<td style="text-align: center">1</td>
-			</tr>
-			<tr>
-					<td style="text-align: center">3</td>
-					<td style="text-align: center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>9</mn><mo>−</mo><mn>3</mn><mo stretchy="false">)</mo><mo>+</mo><mn>0</mn><mo>+</mo><mn>1</mn><mo>=</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">(9 - 3) + 0 + 1 = 7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">9</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">3</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">7</span></span></span></span></td>
-					<td style="text-align: center">7</td>
-					<td style="text-align: center">0</td>
-			</tr>
-			<tr>
-					<td style="text-align: center">1</td>
-					<td style="text-align: center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>9</mn><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo>+</mo><mn>3</mn><mo>=</mo><mn>11</mn></mrow><annotation encoding="application/x-tex">(9 - 1) + 3 = 11</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">9</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">11</span></span></span></span></td>
-					<td style="text-align: center">1</td>
-					<td style="text-align: center">1</td>
-			</tr>
-			<tr>
-					<td style="text-align: center">2</td>
-					<td style="text-align: center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>9</mn><mo>−</mo><mn>2</mn><mo stretchy="false">)</mo><mo>+</mo><mn>1</mn><mo>+</mo><mn>1</mn><mo>=</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">(9 - 2) + 1 + 1 = 9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">9</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">9</span></span></span></span></td>
-					<td style="text-align: center">9</td>
-					<td style="text-align: center">0</td>
-			</tr>
-			<tr>
-					<td style="text-align: center">0 (leading)</td>
-					<td style="text-align: center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>−</mo><mn>1</mn><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2 - 1 = 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></td>
-					<td style="text-align: center">1</td>
-					<td style="text-align: center">0</td>
-			</tr>
-	</tbody>
-</table>
-<p>The result is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>19170</mn></mrow><annotation encoding="application/x-tex">19170</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">19170</span></span></span></span>. Eight, four and three have their own variants of the same shape, and the digit-by-digit habit never changes.</p>
-<h2 id="what-if-both-numbers-are-big">What if both numbers are big?</h2>
-<p>So far the multiplier has been a single digit. For two long numbers, Trachtenberg&rsquo;s general method keeps the same one-place-at-a-time spirit.</p>
-<p>Think about the last digit of the product. It is settled entirely by the last digits of the two numbers, so it can be written down at once. The next digit to the left depends on that temporary result plus two cross products: last digit against next-to-last, and next-to-last against last. Then you write that digit and carry.</p>
-<p>Each place in the answer sums everything that can reach it:</p>
-<p><strong>the sum, over all pairs of digits whose positions land on that place, of the products of those digits, plus any carry</strong></p>
-<p>His version splits every small product into a units digit and a tens digit, which land in neighboring places. He called it the <em>2 Finger Method</em>. With practice, people can multiply four-digit numbers in their heads, writing down only the final answer, starting at the right and ending at the left.</p>
-<p>Division follows the same one-digit-at-a-time shape, but with subtraction in place of addition. You work out the answer digit by digit, subtracting products from a running partial dividend. If a subtraction goes negative, you back up one digit and reduce that answer digit by one.</p>
-<h2 id="what-the-trick-really-is">What the trick really is</h2>
-<p>Look back at everything above. A big multiplication was never treated as one scary operation. Each answer digit was treated as a small, local question: <em>what do I need from here, and from the digit beside me?</em></p>
-<p>That is what made it usable for someone without paper. The memory load stays small, because the problem arrives in tiny pieces and the answer leaves in order, right to left.</p>
-<p>And it all started from the plainest observation: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>11</mn><mo>=</mo><mn>10</mn><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">11 = 10 + 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">11</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">10</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>.</p>
+<p>You don&rsquo;t feel the swap. The answer arrives fast and fluent, so it feels like an answer to the real question.</p>
+<p><strong>Steal this:</strong> for any big judgment, write the actual question down. Then ask: &ldquo;Is this really what I&rsquo;m answering?&rdquo;</p>
+<hr>
+<h2 id="3-confidence-is-a-feeling-not-evidence">3. Confidence is a feeling, not evidence</h2>
+<p>Early in his career, Kahneman helped evaluate soldiers for officer training in the Israeli army. He and his colleagues watched candidates tackle an obstacle course and felt they could see each man&rsquo;s true character. Then every few months they&rsquo;d get feedback: their predictions were barely better than guessing.</p>
+<p>It changed nothing. The next batch arrived, they watched them haul a log over a wall, and the certainty came right back, as vivid as before.</p>
+<p>He named it the <strong>illusion of validity</strong>: you can know, as a statistic, that your judgments are poor, and still feel that this specific judgment is solid. Like the Müller-Lyer lines, knowing the trick doesn&rsquo;t make it go away.</p>
+<p><strong>Steal this:</strong> high confidence from someone (including you) mostly proves they&rsquo;ve told themselves a coherent story. Treat admitted uncertainty as the more informative signal.</p>
+<hr>
+<h2 id="4-a-dumb-formula-beats-the-smart-expert">4. A dumb formula beats the smart expert</h2>
+<p>Paul Meehl dared to compare trained clinicians against simple statistical rules. The rules won, and kept winning. After roughly 200 studies, about 60% show the algorithm clearly more accurate, and the rest are ties. Predicting parole violations, business success, cancer survival, college grades. Kahneman notes that no exception has been convincingly documented.</p>
+<p>Why do experts lose?</p>
+<ul>
+<li>They try to be clever and combine many factors, and complexity usually hurts.</li>
+<li>They are wildly inconsistent. Experienced radiologists contradict their own reading of the same X-ray about 20% of the time.</li>
+</ul>
+<p>An economist built a three-variable weather formula that predicts the future price of Bordeaux wine better than the tasters do. And the best-known success story of all is the Apgar score: five quick checks, scored 0 to 2, that replaced gut feel in delivery rooms and, in Kahneman&rsquo;s telling, has saved the lives of hundreds of thousands of infants.</p>
+<p>Even a back-of-the-envelope formula with equal weights often competes with fancy statistics. One of Kahneman&rsquo;s favorite examples: predict a marriage with <em>how often you make love minus how often you quarrel</em>.</p>
+<p><strong>Steal this:</strong> for hiring, investing, prioritizing, anything repeated, pick 4 to 6 relevant criteria, score each one separately, add them up, and let the total decide. Use your gut to collect the scores, not to overrule the sum.</p>
+<hr>
+<h2 id="5-the-test-for-when-to-trust-intuition">5. The test for when to trust intuition</h2>
+<p>Kahneman isn&rsquo;t saying all intuition is garbage. He spent years arguing with Gary Klein, who studied firefighters that sensed a floor was about to collapse. They finally agreed on a two-part test. Trust an expert&rsquo;s gut only if:</p>
+<ol>
+<li><strong>The environment is regular enough to be predictable</strong>, and</li>
+<li><strong>They&rsquo;ve had long practice with fast, clear feedback.</strong></li>
+</ol>
+<p>Chess players, nurses, firefighters, anesthesiologists pass. Stock pickers and long-range political pundits fail, because their world offers no stable patterns to learn. Some environments are worse than useless: Kahneman retells the story of a doctor who &ldquo;predicted&rdquo; typhoid in patients. He was accurate, because he was spreading it himself with unwashed hands.</p>
+<p>And the line I keep repeating to myself: don&rsquo;t trust anyone, <em>yourself included</em>, to tell you how much to trust their judgment. Judge the environment and the feedback loop, not the confidence.</p>
+<p><strong>Steal this:</strong> before you defer to an expert (or to your own hunch), ask two questions. Is this a world with stable patterns? Did this person get quick, honest feedback in it?</p>
+<hr>
+<h2 id="6-your-plan-is-a-best-case-fantasy-so-imagine-the-funeral-first">6. Your plan is a best-case fantasy, so imagine the funeral first</h2>
+<p>Plans are written from the inside: our team, our scenario, our enthusiasm. Kahneman calls the result the <strong>planning fallacy</strong>, forecasts hugging the best case instead of the track record of similar projects.</p>
+<p>The receipts:</p>
+<ul>
+<li>Scotland&rsquo;s new parliament building: estimated at up to £40 million, finished at around £431 million.</li>
+<li>Rail projects worldwide: ridership overestimated by 106% on average, costs overrun by 45%.</li>
+<li>Home kitchen remodels: owners expected to pay about <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>18</mn><mo separator="true">,</mo><mn>658</mn><mi>a</mi><mi>n</mi><mi>d</mi><mi>p</mi><mi>a</mi><mi>i</mi><mi>d</mi><mi>a</mi><mi>b</mi><mi>o</mi><mi>u</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">18,658 and paid about </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">18</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">658</span><span class="mord mathnormal">an</span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mord mathnormal">ai</span><span class="mord mathnormal">d</span><span class="mord mathnormal">ab</span><span class="mord mathnormal">o</span><span class="mord mathnormal">u</span><span class="mord mathnormal">t</span></span></span></span>38,769.</li>
+</ul>
+<p>Two fixes:</p>
+<ul>
+<li><strong>The outside view.</strong> Ignore your story. Look up how similar projects actually went, and start your estimate there.</li>
+<li><strong>The premortem</strong> (Klein&rsquo;s idea). Before committing, gather the team and say: <em>&ldquo;Imagine it&rsquo;s a year from now. We did this. It was a disaster. Write the history of why.&rdquo;</em> It works because it makes doubt socially safe. Once a group has decided, dissent starts to look like disloyalty. The premortem makes dissent the assignment.</li>
+</ul>
+<p><strong>Steal this:</strong> run a ten-minute premortem on your next big decision. Then multiply your timeline by whatever similar projects actually took.</p>
+<hr>
+<h2 id="7-youre-two-people-and-the-wrong-one-is-running-your-life">7. You&rsquo;re two people, and the wrong one is running your life</h2>
+<p>Kahneman splits you into an <strong>experiencing self</strong> (the one who feels each moment) and a <strong>remembering self</strong> (the one who keeps score afterward). They disagree, and the remembering self gets the vote.</p>
+<p>In a colonoscopy study, patients reported their pain minute by minute. Afterward, they rated the whole ordeal, and their ratings ignored how long it lasted. What mattered was the worst moment and the final moment: the <strong>peak-end rule</strong>, plus <strong>duration neglect</strong>. A patient with an 8-minute procedure that ended painfully remembered it as worse than a patient whose procedure was three times longer but tapered off gently.</p>
+<p>The same distortion shapes how we judge our lives. Kahneman&rsquo;s <strong>focusing illusion</strong>: whatever you&rsquo;re thinking about seems far more important than it really is. People assume sunny California must make you happier. It doesn&rsquo;t, because Californians hardly think about the weather. The same trap makes us overestimate how much a new car, house, or gadget will improve our daily lives, and underrate things like friendships and hobbies that keep demanding our attention.</p>
+<p><strong>Steal this:</strong> end experiences well, because the ending is what gets remembered. And before a big purchase or move, ask: &ldquo;How often will I actually be thinking about this?&rdquo;</p>
+<hr>
+<h2 id="the-honey">The honey</h2>
+<p>If you only keep one thing:</p>
+<blockquote>
+<p>Your mind is a story machine. It values coherence over completeness, ease over accuracy, and confidence over evidence.</p>
+</blockquote>
+<p>You can&rsquo;t switch that machine off, and Kahneman is clear that even he never fully escaped its tricks. But you can build around it:</p>
+<ul>
+<li>Look for what&rsquo;s missing.</li>
+<li>Name the real question.</li>
+<li>Distrust the feeling of certainty.</li>
+<li>Let simple formulas make the repeated calls.</li>
+<li>Check whether the environment lets anyone have real expertise.</li>
+<li>Run the premortem.</li>
+<li>Plan for the memory, and for the attention, not just the moment.</li>
+</ul>
+<p>The goal isn&rsquo;t to stop having a gut. It&rsquo;s to stop letting your gut cross-examine itself and rule that it&rsquo;s innocent.</p>
+<p><em>One honest caveat: some findings in the book, especially around social priming, have not held up well in replication, and I left those out on purpose. The ideas above rest on far firmer ground.</em></p>
+<hr>
+<p><em>Source: Daniel Kahneman, <strong>Thinking, Fast and Slow</strong> (2011).</em></p>
+<p><em>As an Amazon Associate I earn from qualifying purchases. If you buy through the link below, I receive a small percentage at no extra cost to you.</em></p>
+<p>Get your copy of <a href="https://www.amazon.com/s?k=Thinking%2C+Fast+and+Slow+Daniel+Kahneman&amp;tag=hivereads-20">Thinking, Fast and Slow</a>.</p>
 ]]></content:encoded></item><item><title>About</title><link>http://localhost:1313/blog/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/blog/about/</guid><description>Otmane Echaibi, systems hacker, minimalist, writer, amateur mathematician and marathon runner.</description><content:encoded><![CDATA[<p>I&rsquo;m <strong>Otmane Echaibi</strong>, a systems hacker. I live in the terminal, and my home is the internet.</p>
-<p>I write Python, Fish, Lua, Go, Rust and JavaScript. Each one has one job, and Python sits in the middle:</p>
-<p><img alt="Python at the center, connected to JavaScript for browser interactivity, Go for CLI tools, Rust for system programming, Fish for the terminal, and Lua for config and Neovim" loading="lazy" src="/languages.svg"></p>
+<p>I write Python, Fish, Lua, Go, Rust and JavaScript, bash, sql. Each one has one job, and Python sits in the middle:</p>
 <p>Outside the terminal I run marathons, write, and do math as an amateur.</p>
 <p>I&rsquo;m a <strong>minimalist</strong>, and it&rsquo;s my philosophy, not a style. I keep my things few and my code small. The blog follows the same rule: say what&rsquo;s needed, then stop.</p>
 <h2 id="what-youll-find-here">What you&rsquo;ll find here</h2>
