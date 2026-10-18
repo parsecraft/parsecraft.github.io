@@ -17,7 +17,7 @@ Here is the most unsettling sentence I took from a 500-page book:
 
 It tells you something else: how smoothly your brain managed to assemble a story. That's it. Smooth story, high confidence. Messy story, doubt. Truth is not part of the calculation.
 
-That's the thread running through Daniel Kahneman's *Thinking, Fast and Slow*, the life's work of a psychologist who won the Nobel Prize in Economics in 2002. I read it so you don't have to, and kept only the ideas worth stealing. Here are the seven that survived.
+That's the thread running through Daniel Kahneman's *Thinking, Fast and Slow*, the life's work of a psychologist who won the Nobel Prize in Economics in 2002. I read it so you don't have to, and kept only the ideas worth sharing. Here are the seven that survived.
 
 ---
 
@@ -31,7 +31,7 @@ The experiment that made me wince: people read a legal case, then heard from a l
 
 Less information, more confidence. A thin story is easier to make coherent than a rich one.
 
-**Steal this:** when you feel certain, ask "what would I need to know that I don't know?" Then go find it before you decide.
+**Share this:** when you feel certain, ask "what would I need to know that I don't know?" Then go find it before you decide.
 
 ---
 
@@ -45,7 +45,7 @@ When a question is hard, your mind quietly swaps it for an easier one and answer
 
 You don't feel the swap. The answer arrives fast and fluent, so it feels like an answer to the real question.
 
-**Steal this:** for any big judgment, write the actual question down. Then ask: "Is this really what I'm answering?"
+**Share this:** for any big judgment, write the actual question down. Then ask: "Is this really what I'm answering?"
 
 ---
 
@@ -57,7 +57,7 @@ It changed nothing. The next batch arrived, they watched them haul a log over a 
 
 He named it the **illusion of validity**: you can know, as a statistic, that your judgments are poor, and still feel that this specific judgment is solid. Like the Müller-Lyer lines, knowing the trick doesn't make it go away.
 
-**Steal this:** high confidence from someone (including you) mostly proves they've told themselves a coherent story. Treat admitted uncertainty as the more informative signal.
+**Share this:** high confidence from someone (including you) mostly proves they've told themselves a coherent story. Treat admitted uncertainty as the more informative signal.
 
 ---
 
@@ -74,7 +74,7 @@ An economist built a three-variable weather formula that predicts the future pri
 
 Even a back-of-the-envelope formula with equal weights often competes with fancy statistics. One of Kahneman's favorite examples: predict a marriage with *how often you make love minus how often you quarrel*.
 
-**Steal this:** for hiring, investing, prioritizing, anything repeated, pick 4 to 6 relevant criteria, score each one separately, add them up, and let the total decide. Use your gut to collect the scores, not to overrule the sum.
+**Share this:** for hiring, investing, prioritizing, anything repeated, pick 4 to 6 relevant criteria, score each one separately, add them up, and let the total decide. Use your gut to collect the scores, not to overrule the sum.
 
 ---
 
@@ -89,7 +89,7 @@ Chess players, nurses, firefighters, anesthesiologists pass. Stock pickers and l
 
 And the line I keep repeating to myself: don't trust anyone, *yourself included*, to tell you how much to trust their judgment. Judge the environment and the feedback loop, not the confidence.
 
-**Steal this:** before you defer to an expert (or to your own hunch), ask two questions. Is this a world with stable patterns? Did this person get quick, honest feedback in it?
+**Share this:** before you defer to an expert (or to your own hunch), ask two questions. Is this a world with stable patterns? Did this person get quick, honest feedback in it?
 
 ---
 
@@ -108,7 +108,7 @@ Two fixes:
 - **The outside view.** Ignore your story. Look up how similar projects actually went, and start your estimate there.
 - **The premortem** (Klein's idea). Before committing, gather the team and say: *"Imagine it's a year from now. We did this. It was a disaster. Write the history of why."* It works because it makes doubt socially safe. Once a group has decided, dissent starts to look like disloyalty. The premortem makes dissent the assignment.
 
-**Steal this:** run a ten-minute premortem on your next big decision. Then multiply your timeline by whatever similar projects actually took.
+**Share this:** run a ten-minute premortem on your next big decision. Then multiply your timeline by whatever similar projects actually took.
 
 ---
 
@@ -120,7 +120,7 @@ In a colonoscopy study, patients reported their pain minute by minute. Afterward
 
 The same distortion shapes how we judge our lives. Kahneman's **focusing illusion**: whatever you're thinking about seems far more important than it really is. People assume sunny California must make you happier. It doesn't, because Californians hardly think about the weather. The same trap makes us overestimate how much a new car, house, or gadget will improve our daily lives, and underrate things like friendships and hobbies that keep demanding our attention.
 
-**Steal this:** end experiences well, because the ending is what gets remembered. And before a big purchase or move, ask: "How often will I actually be thinking about this?"
+**Share this:** end experiences well, because the ending is what gets remembered. And before a big purchase or move, ask: "How often will I actually be thinking about this?"
 
 ---
 
@@ -148,6 +148,4 @@ The goal isn't to stop having a gut. It's to stop letting your gut cross-examine
 
 *Source: Daniel Kahneman, **Thinking, Fast and Slow** (2011).*
 
-*As an Amazon Associate I earn from qualifying purchases. If you buy through the link below, I receive a small percentage at no extra cost to you.*
-
-Get your copy of [Thinking, Fast and Slow](https://www.amazon.com/s?k=Thinking%2C+Fast+and+Slow+Daniel+Kahneman&tag=hivereads-20).
+If you liked this post, consider supporting my work on [Patreon](https://www.patreon.com/parsecraft). Thank you! :)
